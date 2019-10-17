@@ -1,0 +1,6 @@
+version: '3'
+services:
+  tits:
+    build: .
+    environment:
+      - TG_BOT_API_KEY
