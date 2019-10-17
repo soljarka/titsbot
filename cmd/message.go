@@ -51,7 +51,7 @@ func (this *BotUsers) CheckInterval(User *tgbotapi.User) bool {
 	}
 
 	duration := time.Since(foundUser.lastActive)
-	if duration.Seconds() < 900 {
+	if duration.Seconds() < 50 {
 		return false
 	}
 	return true
