@@ -1,0 +1,7 @@
+{
+  "deploy": {
+    "appIsGoPath": true,
+    "main": "botApp",
+    "execDir": "bin"
+  }
+}
