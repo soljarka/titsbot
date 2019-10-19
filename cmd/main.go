@@ -47,7 +47,7 @@ func main() {
 		}
 
 		if update.Message.Command() == "start" {
-			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Ну какой start то? Я умею только /tits номер и /randomtits")
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+"\n/randomtits\n /tits [number]\n /randombutt\n /butt [number]")
 			bot.Send(msg)
 			continue
 		}
@@ -80,8 +80,8 @@ func main() {
 
 		if update.Message.Command() == "randombutt" {
 			successSend = false
-			for i := 0; i < 3; i++ {
-				randomTitsNum = Random(7, 7039)
+			for i := 0; i < 10; i++ {
+				randomTitsNum = Random(7, 7045)
 				titslink = "http://media.obutts.ru/butts_preview/" + fmt.Sprintf("%05d", randomTitsNum) + ".jpg"
 
 				resp, err := http.Head(titslink)
@@ -106,7 +106,7 @@ func main() {
 
 		if update.Message.Command() == "tits" {
 			titsNum, _ := strconv.Atoi(update.Message.CommandArguments())
-			titslink = "http://media.oboobs.ru/boobs_preview/" + strconv.Itoa(titsNum) + ".jpg"
+			titslink = "http://media.oboobs.ru/boobs_preview/" + fmt.Sprintf("%05d", titsNum) + ".jpg"
 
 			resp, err := http.Head(titslink)
 			if err != nil {
@@ -132,9 +132,9 @@ func main() {
 
 		if update.Message.Command() == "randomtits" {
 			successSend = false
-			for i := 0; i < 3; i++ {
-				randomTitsNum = Random(10000, 11549)
-				titslink = "http://media.oboobs.ru/boobs_preview/" + strconv.Itoa(randomTitsNum) + ".jpg"
+			for i := 0; i < 10; i++ {
+				randomTitsNum = Random(1, 14306)
+				titslink = "http://media.oboobs.ru/boobs_preview/" + fmt.Sprintf("%05d", randomTitsNum) + ".jpg"
 
 				resp, err := http.Head(titslink)
 				if err != nil {
