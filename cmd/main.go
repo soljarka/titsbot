@@ -62,15 +62,15 @@ func main() {
 			} else {
 				if resp.StatusCode == 200 {
 					successSend = true
-					SendTits(update, bot, titsNum, titslink, "Жопа")
+					SendTits(update, bot, titsNum, titslink, "Butt")
 				} else {
 					log.Print("Send butt to " + update.Message.From.String() + " failed: " + titslink + " - return " + resp.Status + " :(")
 
 					if resp.StatusCode == 404 {
-						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Нет такой картинки")
+						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Image not found")
 						bot.Send(msg)
 					} else {
-						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Я сломался, извини :(")
+						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" I broke down, sorry :(")
 						bot.Send(msg)
 					}
 				}
@@ -90,7 +90,7 @@ func main() {
 				} else {
 					if resp.StatusCode == 200 {
 						successSend = true
-						SendTits(update, bot, randomTitsNum, titslink, "Жопа")
+						SendTits(update, bot, randomTitsNum, titslink, "Butt")
 						break
 					} else {
 						log.Print("Send butt to " + update.Message.From.String() + " failed: " + titslink + " - return " + resp.Status + ", retry :(")
@@ -99,7 +99,7 @@ func main() {
 				}
 			}
 			if successSend == false {
-				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Я сломался, извини :(")
+				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" I broke down, sorry :(")
 				bot.Send(msg)
 			}
 		}
@@ -114,15 +114,15 @@ func main() {
 			} else {
 				if resp.StatusCode == 200 {
 					successSend = true
-					SendTits(update, bot, titsNum, titslink, "Сиськи")
+					SendTits(update, bot, titsNum, titslink, "Tits")
 				} else {
 					log.Print("Send tits to " + update.Message.From.String() + " failed: " + titslink + " - return " + resp.Status + " :(")
 
 					if resp.StatusCode == 404 {
-						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Нет такой картинки")
+						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Image not found")
 						bot.Send(msg)
 					} else {
-						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Я сломался, извини :(")
+						msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" I broke down, sorry :(")
 						bot.Send(msg)
 					}
 				}
@@ -142,7 +142,7 @@ func main() {
 				} else {
 					if resp.StatusCode == 200 {
 						successSend = true
-						SendTits(update, bot, randomTitsNum, titslink, "Сиськи")
+						SendTits(update, bot, randomTitsNum, titslink, "Tits")
 						break
 					} else {
 						log.Print("Send tits to " + update.Message.From.String() + " failed: " + titslink + " - return " + resp.Status + ", retry :(")
@@ -151,7 +151,7 @@ func main() {
 				}
 			}
 			if successSend == false {
-				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Я сломался, извини :(")
+				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" I broke down, sorry :(")
 				bot.Send(msg)
 			}
 		} else {
@@ -174,7 +174,7 @@ func SendTits(update tgbotapi.Update, bot *tgbotapi.BotAPI, titsnum int, titslin
 		}
 
 		msg := tgbotapi.NewPhotoUpload(update.Message.Chat.ID, file.Name())
-		msg.Caption = label + " №" + strconv.Itoa(titsnum) + " для @" + update.Message.From.String()
+		msg.Caption = label + " №" + strconv.Itoa(titsnum) + " for @" + update.Message.From.String()
 		//msg.ReplyToMessageID = update.Message.MessageID
 		bot.Send(msg)
 		if update.Message.Chat.IsPrivate() {
@@ -187,7 +187,7 @@ func SendTits(update tgbotapi.Update, bot *tgbotapi.BotAPI, titsnum int, titslin
 	} else {
 		if !WroteUsers.CheckIgnore(update.Message.From) {
 			WroteUsers.Ignore(update.Message.From)
-			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Хватит спамить! Не более чем раз в минуту.")
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Stop spamming! Only once every 15 minutes.")
 			bot.Send(msg)
 		}
 		log.Print("Ignore request from user " + update.Message.From.String())
