@@ -187,7 +187,7 @@ func SendTits(update tgbotapi.Update, bot *tgbotapi.BotAPI, titsnum int, titslin
 	} else {
 		if !WroteUsers.CheckIgnore(update.Message.From) {
 			WroteUsers.Ignore(update.Message.From)
-			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Stop spamming! Only once every 15 minutes.")
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "@"+update.Message.From.String()+" Stop spamming! Only once every 5 seconds.")
 			bot.Send(msg)
 		}
 		log.Print("Ignore request from user " + update.Message.From.String())
